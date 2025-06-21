@@ -1,0 +1,16 @@
+void reverse(Stack<Integer> stack) {
+    if (stack.isEmpty()) return;
+    int temp = stack.pop();
+    reverse(stack);
+    insertAtBottom(stack, temp);
+}
+
+void insertAtBottom(Stack<Integer> stack, int val) {
+    if (stack.isEmpty()) {
+        stack.push(val);
+    } else {
+        int temp = stack.pop();
+        insertAtBottom(stack, val);
+        stack.push(temp);
+    }
+}
